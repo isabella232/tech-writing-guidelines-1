@@ -1,4 +1,11 @@
-## Contextual help in Kibana
+---
+id: inProdHelp
+slug: /tech-docs/ui/in-prod-help
+title: Contextual help in Kibana
+description: Descriptions and examples of in-product help tools.
+date: 2022-03-10
+tags: ['UI copy','in-product help']
+---
 
 Users need to understand how the user interface works without checking 
 documentation in another page. Thus all of the messages, labels, and help text 
@@ -13,10 +20,7 @@ multiple options for providing additional contextual help, with slight
 variations depending on the specific Kibana app. You can find the available 
 options, their descriptions, fields and tips of usage, and example codes below.
 
-### Text 
-
-
-### Tooltips and icontips
+## Tooltips and icontips
 
 Use an [tooltip](https://elastic.github.io/eui/#/display/tooltip) to add 
 hover help to one or more words and a question mark icon. Use it to explain what 
@@ -24,22 +28,22 @@ a specific component is or does. For example, it might explain what a table
 column shows or what a metric does. Generally, it is useful for small snippets 
 of information and not longer than one or two sentences.
 
-1) [APM: TraceList.tsx](https://github.com/elastic/kibana/blob/master/x-pack/plugins/apm/public/components/app/trace_overview/TraceList.tsx)
+1. [APM: TraceList.tsx](https://github.com/elastic/kibana/blob/master/x-pack/plugins/apm/public/components/app/trace_overview/TraceList.tsx)
 
-![A tooltip in the APM app](images/apmToolTip.png)
+  ![A tooltip in the APM app](images/apmToolTip.png)
 
-2) [Machine Learning: timeseriesexplorer.js](https://github.com/elastic/kibana/blob/master/x-pack/plugins/ml/public/application/timeseriesexplorer/timeseriesexplorer.js)
+2. [Machine Learning: timeseriesexplorer.js](https://github.com/elastic/kibana/blob/master/x-pack/plugins/ml/public/application/timeseriesexplorer/timeseriesexplorer.js)
 
-![A tooltip in the Machine Learning app](images/mlToolTip.png)
+  ![A tooltip in the Machine Learning app](images/mlToolTip.png)
 
 If you want the help to appear only when you hover over the question mark icon, 
 use an [icontip](https://elastic.github.io/eui/#/display/tooltip). For example:
 
-1) [Machine Learning:explorer.js](https://github.com/elastic/kibana/blob/master/x-pack/plugins/ml/public/application/explorer/explorer.js)
+1. [Machine Learning:explorer.js](https://github.com/elastic/kibana/blob/master/x-pack/plugins/ml/public/application/explorer/explorer.js)
 
-![An inconTip in the Machine Learning app](images/mlIconTip.png)
+  ![An inconTip in the Machine Learning app](images/mlIconTip.png)
 
-### Popovers
+## Popovers
 
 Use a [popover](https://elastic.github.io/eui/#/layout/popover) to provide 
 longer explanations associated with a clickable element. Popovers are ideal for 
@@ -56,13 +60,39 @@ flyout.
   them judiciously.
 </DocCallOut >
 
-1) [Visualize: date_histogram.tsx](https://github.com/elastic/kibana/blob/master/x-pack/plugins/lens/public/indexpattern_datasource/operations/definitions/date_histogram.tsx)
+1. [Visualize: date_histogram.tsx](https://github.com/elastic/kibana/blob/master/x-pack/plugins/lens/public/indexpattern_datasource/operations/definitions/date_histogram.tsx)
 
-![A popover in the Visualize app](images/visualizePopover.png)
+  ![A popover in the Visualize app](images/visualizePopover.png)
 
-2) [ML: help_popover.tsx](https://github.com/elastic/kibana/blob/master/x-pack/plugins/ml/public/application/components/help_popover/help_popover.tsx) & [anomaly_timeline_help_popover.tsx](https://github.com/elastic/kibana/blob/master/x-pack/plugins/ml/public/application/explorer/anomaly_timeline_help_popover.tsx)
+2. [ML: help_popover.tsx](https://github.com/elastic/kibana/blob/master/x-pack/plugins/ml/public/application/components/help_popover/help_popover.tsx) & [anomaly_timeline_help_popover.tsx](https://github.com/elastic/kibana/blob/master/x-pack/plugins/ml/public/application/explorer/anomaly_timeline_help_popover.tsx)
 
-![A popover in the Machine Learning app](images/mlPopover.png)
+  ![A popover in the Machine Learning app](images/mlPopover.png)
+
+## Flyout
+
+Use flyouts to provide instructions for a complex task that might be hard to 
+complete without help, especially if users have to go outside the app to 
+accomplish the task. It can be also useful to help users better understand a 
+concept, such as index patterns.
+
+The benefit of this tool is that it opens from a link in the product, but does 
+not take users outside the product. However, it is recommended to use this help 
+sparingly, as it needs to be kept in sync with the documentation.
+
+[Share menu flyout in Canvas](https://github.com/elastic/kibana/blob/main/x-pack/plugins/canvas/public/components/workpad_header/share_menu/flyout/flyout.tsx)
+
+  ![Flyout in Canvas](images/canvasFlyout.png)
+
+## Links to docs
+
+### Learn more links
+
+Learn more links typically appear inline after a description. Links to the 
+documentation, where users can get more detailed help.
+
+[Learn more link in calendars (ML app)](https://github.com/elastic/kibana/blob/ccf961f8b751bbd715a4886bdc79c154c33067eb/x-pack/plugins/ml/public/application/jobs/new_job/pages/components/job_details_step/components/additional_section/components/calendars/description.tsx#L33)
+
+  ![Learn more link in Calendars](image/mlCalendarLearnMore.png)  
 
 ### Empty button links
 
@@ -71,29 +101,30 @@ Use an
 when you want to make a button look like a regular link, but still want to align 
 it to the rest of the buttons on the page.
 
-1) [Cross cluster replication:follower_index_page_title.js](https://github.com/elastic/kibana/blob/master/x-pack/plugins/cross_cluster_replication/public/app/components/follower_index_page_title.js)
+[Cross cluster replication: follower_index_page_title.js](https://github.com/elastic/kibana/blob/master/x-pack/plugins/cross_cluster_replication/public/app/components/follower_index_page_title.js)
 
-![A link to CCR documentation](images/ccrDocLink.png)
+  ![A link to CCR documentation](images/ccrDocLink.png)
 
 ### Help menus
 
 Many of the apps in Kibana have documentation links in the help menu.
 
-1) [Machine Learning: help_menu.tsx](https://github.com/elastic/kibana/blob/master/x-pack/plugins/ml/public/application/components/help_menu/help_menu.tsx)
+1. [Machine Learning: help_menu.tsx](https://github.com/elastic/kibana/blob/master/x-pack/plugins/ml/public/application/components/help_menu/help_menu.tsx)
 
-![The help menu in Machine Learning](images/mlHelpMenu.png)
+  ![The help menu in Machine Learning](images/mlHelpMenu.png)
 
 This help menu is a bit unusual because it has a different URL depending on 
 which page you're using in the app. 
 
-2) [Canvas:application.tsx](https://github.com/elastic/kibana/blob/master/x-pack/plugins/canvas/public/application.tsx)
+2. [Canvas: application.tsx](https://github.com/elastic/kibana/blob/master/x-pack/plugins/canvas/public/application.tsx)
 
-3) [Dashboards:help_menu_util.ts](https://github.com/elastic/kibana/blob/master/src/plugins/dashboard/public/application/lib/help_menu_util.ts)
+3. [Dashboards: help_menu_util.ts](https://github.com/elastic/kibana/blob/master/src/plugins/dashboard/public/application/lib/help_menu_util.ts)
 
-4) [Discover:help_menu_util.ts](https://github.com/elastic/kibana/blob/master/src/plugins/discover/public/application/components/help_menu/help_menu_util.ts)
+4. [Discover: help_menu_util.ts](https://github.com/elastic/kibana/blob/master/src/plugins/discover/public/application/components/help_menu/help_menu_util.ts)
 
-5) [Lens:help_menu_util.tsx](https://github.com/elastic/kibana/blob/master/x-pack/plugins/lens/public/help_menu_util.tsx)
+5. [Lens: help_menu_util.tsx](https://github.com/elastic/kibana/blob/master/x-pack/plugins/lens/public/help_menu_util.tsx)
 
-6) [Maps:render_app.tsx](https://github.com/elastic/kibana/blob/master/x-pack/plugins/maps/public/render_app.tsx)
+6. [Maps: render_app.tsx](https://github.com/elastic/kibana/blob/master/x-pack/plugins/maps/public/render_app.tsx)
 
-7) [Visualize:utils.ts](https://github.com/elastic/kibana/blob/master/src/plugins/visualize/public/application/utils/utils.ts)
+7. [Visualize: utils.ts](https://github.com/elastic/kibana/blob/master/src/plugins/visualize/public/application/utils/utils.ts)
+
