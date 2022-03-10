@@ -1,0 +1,28 @@
+{
+    "mission": "Technical documentation and UI copy guidelines",
+    "id": "guide",
+    "landingPageId": "guideHome",
+    "icon": "paperClip",
+    "description": "Guidelines for writing technical docs and UI copy.",
+    "items": [
+      {
+        "category": "Home",
+        "items": [
+          { "id": "guideHome" }
+        ]
+      },
+      {
+        "category": "Technical documentation",
+        "items": [
+          { "id": "techDocs" }
+        ]
+      },
+      {
+        "category": "UI copy",
+        "items": [
+          { "id": "uiCopy" },
+          { "id": "inProdHelp" }
+        ]
+      }
+    ]
+}
