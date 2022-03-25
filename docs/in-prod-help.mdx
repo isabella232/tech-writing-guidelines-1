@@ -22,11 +22,17 @@ options, their descriptions, fields and tips of usage, and example codes below.
 
 ## Tooltips and icontips
 
-Use an [tooltip](https://elastic.github.io/eui/#/display/tooltip) to add 
-hover help to one or more words and a question mark icon. Use it to explain what 
-a specific component is or does. For example, it might explain what a table 
-column shows or what a metric does. Generally, it is useful for small snippets 
-of information and not longer than one or two sentences.
+A [tooltip](https://elastic.github.io/eui/#/display/tooltip) is textual hover 
+help that is added to one or more words and a question mark icon.
+
+* Use it to explain what a specific component is or does. For example, it might 
+  explain what a table column shows or what a metric does.
+* It is useful for small snippets of information and not longer than one or two 
+  sentences.
+* Tooltips do not include links or text that requires special formatting.
+* The icon color is grey, or black if it's used on a grey background.
+* The icon is on the right side of the label.
+
 
 1. [APM: TraceList.tsx](https://github.com/elastic/kibana/blob/master/x-pack/plugins/apm/public/components/app/trace_overview/TraceList.tsx)
 
@@ -45,19 +51,20 @@ use an [icontip](https://elastic.github.io/eui/#/display/tooltip). For example:
 
 ## Popovers
 
-Use a [popover](https://elastic.github.io/eui/#/layout/popover) to provide 
-longer explanations associated with a clickable element. Popovers are ideal for 
-“how it works” content, reference information, examples, or when you need more 
-space than provided in a tooltip. Consider this component instead of a learn 
-more link, which takes the user off the page.
-
-One of the advantages of this tool is that you can add formatted text or a 
-button to a popover and users don't lose focus from the page in contrast with a 
-flyout.
+A [popover](https://elastic.github.io/eui/#/layout/popover) can provide 
+longer explanations associated with a clickable element. 
+* Ideal for “how it works” content, reference information, examples, or when you 
+  need more space than provided in a tooltip.
+* Consider this component instead of a learn more link, which takes the user off 
+  the page.
+* Formatted text or links can be added to a popover.
+* The icon color is blue.
+* The icon is on the right side of the label.
+* Popovers are triggered on click.
 
 <DocCallOut >
-  As popovers need to be kept in sync with the documentation, use 
-  them judiciously.
+  As popovers need to be kept in sync with the documentation, use them 
+  judiciously.
 </DocCallOut >
 
 1. [Visualize: date_histogram.tsx](https://github.com/elastic/kibana/blob/master/x-pack/plugins/lens/public/indexpattern_datasource/operations/definitions/date_histogram.tsx)
@@ -70,10 +77,10 @@ flyout.
 
 ## Flyout
 
-Use flyouts to provide instructions for a complex task that might be hard to 
-complete without help, especially if users have to go outside the app to 
-accomplish the task. It can be also useful to help users better understand a 
+Flyouts provide instructions for a complex task that might be hard to 
+complete without help. It can be also useful to help users better understand a 
 concept, such as index patterns.
+* Use it if users have to go outside the app to accomplish a task.
 
 The benefit of this tool is that it opens from a link in the product, but does 
 not take users outside the product. However, it is recommended to use this help 
@@ -89,6 +96,14 @@ sparingly, as it needs to be kept in sync with the documentation.
 
 Learn more links typically appear inline after a description. Links to the 
 documentation, where users can get more detailed help.
+* They carry low cost and high benefit, so they can be used wherever there is 
+  more to learn.
+* It's important to make sure that the Learn more links point to the right 
+  place.
+* Check the relevant, linked content whether it needs to be updated or expanded.
+* If the UI is helpful enough and the linked content that the Learn more link 
+  points to doesn't add more value to the topic, do not create (or remove) the 
+  Learn more link.
 
 [Learn more link in calendars (ML app)](https://github.com/elastic/kibana/blob/ccf961f8b751bbd715a4886bdc79c154c33067eb/x-pack/plugins/ml/public/application/jobs/new_job/pages/components/job_details_step/components/additional_section/components/calendars/description.tsx#L33)
 
