@@ -1,0 +1,197 @@
+---
+id: deprecationMessages
+slug: /guide/tech-docs/deprecation-messages
+title: Writing deprecation messages
+description: Writing and formatting deprecation messages and examples from Kibana and Elasticsearch.
+date: 2022-03-30
+tags: ['documentation', 'deprecation messages']
+---
+
+## Summary
+
+Deprecation messages are warnings that notify users that a specific feature, 
+setting, or parameter will be removed and recommended to be replaced with 
+something else.
+
+A deprecation message clearly states: 
+
+* what is being depricated,
+* what action the user needs to take, 
+* when the deprecated feature will be removed.
+
+Example of a minimum viable deprecation message:
+
+`Abc feature is deprecated. Use Xyz instead. Abc will be removed in n.n.`
+
+Provide as much context as possible for what triggered the deprecation message. 
+If action is not required (for example the default behavior is changing), 
+describe the impact of doing nothing.
+
+### Examples
+
+* Setting `xpack.reporting.roles.enabled` is deprecated. Use feature controls to 
+  grant reporting privileges. Reporting roles will be removed in 8.0.
+* The Joda Time century-of-era formatter (C) is deprecated. Use a java.time 
+  formatter instead. The century-of-era formatter will be removed in 8.0.
+* The default for the `cluster.routing.allocation.disk.watermark` setting is 
+  changing from false to true. If you do not explicitly configure this setting 
+  when you upgrade to 8.0, indices in this one node cluster will become 
+  read-only if disk usage reaches 95%. 
+
+
+## General guidelines
+
+### What is deprecated
+
+Use the present tense to describe what is deprecated: 
+
+* Types are deprecated in geo_shape queries.
+* Sorting is deprecated in reindex requests.
+
+Avoid:
+
+* The type should no longer be specified in geo_shape queries.
+* Sorting has been deprecated in reindex requests.
+
+### What action the user needs to take
+
+Use the imperative voice:
+
+* Do not specify a type in the indexed_shape section. 
+* Use query filtering to reindex a subset of documents.
+
+Avoid:
+
+* Please use query filtering instead.
+* You should use query filtering instead.
+* Instead consider using query filtering to find the desired subset of data.
+
+### Context
+
+Where possible, provide the specific context that resulted in the message:
+
+* The Abc timezone used by rollup job Def is deprecated. Use Xyz instead.
+
+### Impact
+
+Many deprecations are clearcut: you are using this old setting and need to 
+switch to using this new setting. Others are more nuanced and don’t necessarily 
+require any changes. In this case, the message needs to address the impact of 
+not taking action:
+
+* The default for the `cluster.routing.allocation.disk.watermark` setting 
+  changes from false to true. If you do not explicitly configure this setting 
+  when you upgrade, indices in this one node cluster become read-only if disk 
+  usage reaches 95%. 
+
+### Version
+
+If items are targeted for removal in a specific release, include that 
+information in the message:
+
+* Abc is deprecated. It will be removed in n.n.
+
+If an item is deprecated but we don’t yet know in what release it will be 
+removed, use:
+
+* Abc is deprecated. Use Xyz instead. Support for Abc will be removed following 
+  the release of n.0. 
+
+Avoid:
+
+* Abc is deprecated and will be unsupported in the future.
+* Abc is deprecated and will not be supported in the next major version of 
+  Elasticsearch.
+
+### Formatting
+
+Use sentence-style capitalization and punctuation. Highlight setting names by 
+using quotation marks.
+
+<DocCallOut >
+  Ideally, monospace is used instead of quotes when the setting names are 
+  displayed in the UI.
+</DocCallOut >
+
+## Elasticsearch examples
+
+* Types are deprecated in `geo_shape` queries. Do not specify a type in the 
+  `indexed_shape` section.
+* Accessing the doc variable via `params.doc` from within a score-script is 
+  deprecated. Access the doc variable directly.
+* The default for the `cluster.routing.allocation.disk.watermark` setting is 
+  changing from false to true. If you do not explicitly configure this setting 
+  when you upgrade, indices in this one node cluster will become read-only if 
+  disk usage reaches 95%.
+
+
+## Kibana deprecation messages
+
+The Kibana deprecation service enables you to specify a title, message, 
+documentation URL, and the manual steps for resolving a deprecation issue.
+
+* **Title**:
+  Example: Setting `xpack.reporting.roles.enabled` is deprecated
+  No end punctuation is required.
+* **Message**:
+  Example: Use feature controls to grant reporting privileges. Reporting roles 
+  will be removed in 8.0.
+  Keep it brief, but multiple sentences are allowed if needed.
+* **Documentation URL**:
+  Don’t link to the Migration guide/breaking changes. Only specify a doc URL if 
+  the user truly needs to “learn more” to understand what actions they need to 
+  take.
+* **Manual steps**:
+  Example: 
+     1. Set `xpack.reporting.roles.enabled` to false.
+     2. Grant reporting privileges using feature controls in Management > 
+     Security > Roles.
+  State the action first for each step.
+
+### Kibana examples
+
+#### Example 1.
+
+**Title**: Setting `xpack.reporting.roles.enabled` is deprecated
+
+**Message**: Use feature controls to grant reporting privileges. The 
+`xpack.reporting.roles` setting will default to false in 8.0 and will be removed 
+in a future release.
+
+**Manual steps**:
+  
+  1. Set `xpack.reporting.roles.enabled` to false. 
+  2. Grant reporting privileges using feature controls in 
+  Management > Security > Roles.
+
+#### Example 2.
+
+**Title**: Authentication configuration format is deprecated
+
+**Message**: The `xpack.security.authProviders`, `xpack.security.public`, and 
+`xpack.security.authc.{saml | oidc}.realm` settings are deprecated. Update your 
+authentication provider configuration to use the new format. Learn more.
+
+**Manual steps**:
+
+1. Remove the `x`, `y`, `z` settings from kibana.yml.
+2. Specify a prioritized list of authentication providers in the following 
+  format:
+  <snippet>
+
+### Example 3.
+
+**Title**: `map.proxyElasticMapsServiceInMaps` is deprecated
+
+**Message**: Host the maps service locally instead of configuring a proxy. The 
+`map.proxyElasticMapsServiceInMaps` setting will be removed in 8.0.
+
+**Manual steps**:
+
+1. Remove `map.proxyElasticMapsServiceInMaps` from the kibana.yml, CLI flag, or 
+  environment variable (in Docker only).
+2. Host Elastic Maps Service locally.
+
+
+
+
