@@ -16,11 +16,17 @@
     },
     {
       "label": "Documentation",
-      "items": [{ "id": "techDocs" }]
+      "items": [
+        { "id": "techDocs" },
+        { "id": "deprecationMessages" }
+               ]
     },
     {
       "label": "UI copy",
-      "items": [{ "id": "uiCopy" }, { "id": "inProdHelp" }]
+      "items": [
+        { "id": "uiCopy" }, 
+        { "id": "inProdHelp" }
+      ]
     }
   ]
 }
