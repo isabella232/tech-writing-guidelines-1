@@ -1,0 +1,131 @@
+---
+id: contentAccessibility
+slug: /guide/content-accessibility
+title: Accessibility
+description: Learn how to write accessible content for our product UI and documentation.
+date: 2022-03-16
+tags: ["UI copy"]
+---
+
+These guidelines are intended for all content authors, whether you are a developer, a designer or a writer. 
+This page shares common tips and tricks for writing accessible content. 
+It is not exhaustive and does not replace the official
+[WCAG 2.0 guidelines](https://www.w3.org/TR/2008/REC-WCAG20-20081211/#guidelines).
+
+<DocCallOut>
+Accessibility is a broad topic. Content is only a part of it. Check the
+[EUI documentation](https://eui.elastic.co/#/guidelines/accessibility) for more general
+accessibility guidelines.
+</DocCallOut>
+
+## Why does it matter?
+
+Our users and readers are diverse, with different abilities, and disabilities. 
+They also interact with our content in different ways: screen readers, mobile devices, Braille, and so on. The list is long, and always evolving. 
+
+As content authors, it is our responsibility to provide them with [perceivable, operable, understandable, and robust content](https://www.w3.org/TR/UNDERSTANDING-WCAG20/intro.html#introduction-fourprincs-head).
+
+## Guidelines
+
+✔️ **Make your content quickly scannable.** A clear structure and meaningful words will tell users if the content is relevant to them within seconds. Use unique headings.
+
+✔️ **Add alt text for all images, icons and media files.** Screen readers, Braille output devices, and search engines will love concise, accurate alt text that describe what cannot always be displayed, viewed or heard on screen. 
+<DocAccordion buttonContent="Examples">
+  ✔️ **Do:** 
+
+  ```html
+  <img src="signup.png" alt="Signup page for Elastic Cloud" />
+  ```
+
+Note: Do not use special characters such as backticks (`) in alt text. They are known to cause
+  formatting issues when building pages.
+
+  For audios and videos, add captions and create scripts that describe the visual content.
+  Provide the script as a separate description track, either as timed text or recorded
+  narration. There are many free, easy-to-use tools available that support the process of
+  transcribing and captioning videos. For more information, refer to
+  [Creating Accessible Videos](https://www.washington.edu/accessibility/videos/).
+
+</DocAccordion>
+
+✔️ **Use plain language.** Users read our content to perform their tasks. Jargon and complex sentences will confuse them or, at best, slow them down. Expand acronyms when first written.
+
+✔️ **Use meaninglful link text.** Descriptive text instead of "click here", "read more", or even a raw URL for a link makes it easier for users to understand what to expect when they'll open it. Screen
+readers jump between links by generating a list of them, and spell out URLs.
+<DocAccordion buttonContent="Examples">
+  ❌ **Don't:** "[Click here](https://www.elastic.co) and make search your best ally."
+    
+  ✔️ **Do:** "Visit [Elastic.co](https://www.elastic.co) and make search your best ally."
+
+</DocAccordion>
+
+✔️ **Use device agnostic language.** Users can access content and products in many ways. We do not know if they use a mouse, a keyboard, a tablet, and so on. 
+<DocAccordion buttonContent="Examples">
+  ❌ **Don't:** "Enter a description and click the **Next** button."
+    
+  ✔️ **Do:** "Enter a description and select **Next**."
+
+</DocAccordion>
+
+✔️ **Avoid directional language.** Above, below, left, right, and so on. All these terms assume that the layout never varies and that users actually see it, and that they see it the way you think they do. What about disabilities or responsiveness?
+<DocAccordion buttonContent="Examples">
+  ❌ **Don't:** "Update your index mapping as you can see below to get the full benefit of
+    aggregating and searching for feature importance."
+
+  ✔️ **Do:** "To benefit from aggregating and searching for feature importance, update your
+    index mapping as shown in this code example: [code example]"
+
+</DocAccordion>
+
+## Terms
+
+| Avoid                 | Use instead               |
+| --------------------- | ------------------------- |
+| Click, tap            | Select, choose            |
+| Above                 | Preceding, previous       |
+| Below, under          | Following, further, later |
+| See                   | Check, refer to           |
+| Hear (hear about...)  | Learn                     |
+
+
+## Testing content for accessibility
+
+Test as early and often as possible. It is always a good exercise to spot improvements early and get good habits. 
+Here are a few methods that you can use to test content:
+
+**Navigate a website or app with only a keyboard** to ensure all content is accessible and
+that a skip navigation link exists.
+
+**Test pages on mobile devices.** A growing number of users, including users with
+disabilities, are accessing the web using phones, tablets, and other mobile devices. Test
+your website using mobile devices, and when doing so, be sure to check for accessibility.
+
+You don't need an actual phone to do this. The Chrome dev tools, for example, are a precious ally to test various layouts.
+
+**Try a screen reader** to understand how users navigate websites using one of the screen
+reader/browser combinations listed in the
+<DocLink
+  id="contentAccessibility"
+  section="assistive-technologies"
+  text="Assistive technologies"
+/> section.
+
+**Turn off speakers and microphones** to make sure the website experience is the same with
+or without sound.
+
+### Assistive technologies
+
+Assistive technology provides the opportunity for individuals with disabilities to access
+information technology and perform functions that might be otherwise impossible, like
+reading text, navigating websites, or listening to a video.
+
+[Text-to-speech and screen readers](https://libguides.reading.ac.uk/inclusive-technology/text-to-speech)
+read what's on your screen through the semantics placed in the content by developers.
+
+[Screen magnification software](https://www.afb.org/blindness-and-low-vision/using-technology/using-computer/part-ii-experienced-computer-user-new-0)
+is used to enlarge the monitor and make reading easy for vision-impaired users.
+
+[The #NoMouse challenge](http://nomouse.org) provides guidance on how to navigate a
+website by using only the keyboard. Also check out
+[this list of special keyboards](https://bltt.org/keyboards-for-disabled-people/) made for
+users who have motor control difficulties.
