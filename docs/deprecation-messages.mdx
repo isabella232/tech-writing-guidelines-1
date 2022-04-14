@@ -21,7 +21,7 @@ A deprecation message clearly states:
 
 Example of a minimum viable deprecation message:
 
-`Abc feature is deprecated. Use Xyz instead. Abc will be removed in n.n.`
+`Abc` feature is deprecated. Use Xyz instead. `Abc` will be removed in n.n.
 
 Provide as much context as possible for what triggered the deprecation message. 
 If action is not required (for example the default behavior is changing), 
@@ -79,28 +79,33 @@ switch to using this new setting. Others are more nuanced and don’t necessaril
 require any changes. In this case, the message needs to address the impact of 
 not taking action:
 
-* The default for the `cluster.routing.allocation.disk.watermark` setting 
-  changes from false to true. If you do not explicitly configure this setting 
-  when you upgrade, indices in this one node cluster become read-only if disk 
-  usage reaches 95%. 
+* The default for the `cluster.routing.allocation.disk.watermark` setting is now 
+  true instead of false. If you do not explicitly configure this setting when 
+  you upgrade, indices in this one node cluster become read-only if disk usage 
+  reaches 95%. 
 
 ### Version
 
 If items are targeted for removal in a specific release, include that 
 information in the message:
 
-* Abc is deprecated. It will be removed in n.n.
+* `Abc` is deprecated. It will be removed in n.n.
 
 If an item is deprecated but we don’t yet know in what release it will be 
 removed, use:
 
-* Abc is deprecated. Use Xyz instead. Support for Abc will be removed following 
-  the release of n.0. 
+* `Abc` is deprecated. Use Xyz instead. Support for `Abc` will be removed 
+  following the release of n.0. 
+
+An alternative wording of the same message:
+
+* The `Abc` setting will default to false in 8.0 and will be removed in a future 
+  release.
 
 Avoid:
 
-* Abc is deprecated and will be unsupported in the future.
-* Abc is deprecated and will not be supported in the next major version of 
+* `Abc` is deprecated and will be unsupported in the future.
+* `Abc` is deprecated and will not be supported in the next major version of 
   Elasticsearch.
 
 ### Formatting
